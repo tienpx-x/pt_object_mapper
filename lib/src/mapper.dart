@@ -118,7 +118,11 @@ class Mapper {
 
       default:
         if (v != null) {
-          setter(v);
+          try {
+            setter(v);
+          } catch (e) {
+            print('[❌] Field: $field - Error: $e');
+          }
         }
     }
   }
